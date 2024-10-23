@@ -1,0 +1,2 @@
+# var
+MODULE = $(notdir $(CURDIR))
