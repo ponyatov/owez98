@@ -34,7 +34,7 @@ tmp/format_cpp: $(C) $(H)
 
 # rule
 bin/$(MODULE): $(C) $(H) $(CP) $(HP)
-	$(CXX) $(CFLAGS) -o $(C) $(CP) $(L)
+	$(CXX) $(CFLAGS) -o $@ $(C) $(CP) $(L)
 tmp/$(MODULE).lexer.cpp: src/$(MODULE).lex
 	flex -o $@ $<
 tmp/$(MODULE).parser.cpp: src/$(MODULE).yacc
