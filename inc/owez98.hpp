@@ -28,6 +28,7 @@ extern int yylex();
 extern int yylineno;
 extern char *yytext;
 extern FILE *yyin;
+extern char *filename;
 extern int yyparse();
 extern void yyerror(const char *msg);
 #include "owez98.parser.hpp"

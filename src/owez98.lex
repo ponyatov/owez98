@@ -1,5 +1,6 @@
 %{
     #include "owez98.hpp"
+    char *filename = nullptr;
 %}
 
 %option noyywrap yylineno

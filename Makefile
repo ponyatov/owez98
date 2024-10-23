@@ -24,7 +24,7 @@ CFLAGS += -Iinc -Itmp -ggdb -O0
 all: bin/$(MODULE)
 run: cpp
 cpp: bin/$(MODULE) $(S)
-	^$
+	$^
 
 # format
 .PHONY: format
