@@ -20,6 +20,22 @@ class Object {
     Object();
     virtual ~Object();
 };
+
+class Primitive : Object {};
+
+class Int : Primitive {
+    int val;
+
+   public:
+    Int(int n);
+    Int(char *c);
+};
+
+class Container : Object {};
+
+class Stack : Container {
+    Stack(char *name);
+};
 /// @}
 
 /// @defgroup skelex skelex
@@ -32,4 +48,18 @@ extern char *filename;
 extern int yyparse();
 extern void yyerror(const char *msg);
 #include "owez98.parser.hpp"
+/// @}
+
+/// @defgroup vm vm
+/// @{
+
+/// @brief data stack
+extern Stack *D;
+
+/// @defgroup cmd cmd
+/// @{
+void push(Object *p);
+
+/// @}
+
 /// @}

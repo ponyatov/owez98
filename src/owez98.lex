@@ -11,5 +11,7 @@ hex  [0-9a-fA-F]+
 oct  [0-7]+
 bin  [01]+
 %%
-#[^\n]*     {}                      /* drop spaces */
-.           { yyerror("lexer"); }
+#[^\n]*     {}                          /* line comment     */
+[ \t\r\n]+  {}                          /* drop spaces      */
+{sign}{dec} { push(new Int(yytext)); }  /* integer          */
+.           { yyerror("lexer"); }       /* undetected char  */
