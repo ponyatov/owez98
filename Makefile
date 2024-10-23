@@ -25,3 +25,22 @@ tmp/$(MODULE).lexer.cpp: src/$(MODULE).lex
 	flex -o $@ $<
 tmp/$(MODULE).parser.cpp: src/$(MODULE).yacc
 	bison -o $@ $<
+
+# doc
+.PHONY: doc
+doc:
+
+.PHONY: doxygen
+doxygen: .doxygen
+	rm -rf docs ; doxygen $< 1>/dev/null
+
+# install
+.PHONY: install update ref gz
+install: doc ref gz
+	$(MAKE) update
+update:
+	sudo apt update
+	sudo apt install -uy `cat apt.txt`
+ref:
+gz:
+
