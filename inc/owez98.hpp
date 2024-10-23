@@ -24,12 +24,11 @@ class Object {
 
 /// @defgroup skelex skelex
 /// @{
-extern int yytoken();
+extern int yylex();
 extern int yylineno;
 extern char *yytext;
 extern FILE *yyin;
 extern int yyparse();
 extern void yyerror(const char *msg);
-extern #include "owez98.lexer.hpp"
-
+#include "owez98.parser.hpp"
 /// @}
