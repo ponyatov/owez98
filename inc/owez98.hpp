@@ -9,7 +9,7 @@
 
 /// @defgroup main main
 /// @{
-int main(int argc, char *argv());
+int main(int argc, char *argv[]);
 void arg(int argc, char *argv);
 /// @}
 
