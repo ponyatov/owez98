@@ -17,7 +17,7 @@ CP += tmp/$(MODULE).parser.cpp tmp/$(MODULE).lexer.cpp
 HP += tmp/$(MODULE).parser.hpp
 
 # cfg
-CFLAGS += -Iinc -Itmp -ggdb -O0
+CFLAGS += -Iinc -Itmp -ggdb -O0 -std=c++17
 
 # all
 .PHONY: all run cpp

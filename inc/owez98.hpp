@@ -5,6 +5,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
+
+#include <string>
+#include <list>
+#include <stack>
 /// @}
 
 /// @defgroup main main
@@ -15,15 +19,23 @@ void arg(int argc, char *argv);
 
 /// @defgroup graph graph
 /// @{
+
 class Object {
+    int ref;                          ///< reference counter
+    static std::list<Object *> pool;  ///< global object pool
+
    public:
     Object();
     virtual ~Object();
+    std::string dump();         ///< full text-tree dump
+    std::string head();         ///< `<T:V>` header line
+    virtual std::string tag();  ///< object class/type tag
+    virtual std::string val();  ///< object value
 };
 
-class Primitive : Object {};
+class Primitive : public Object {};
 
-class Int : Primitive {
+class Int : public Primitive {
     int val;
 
    public:
@@ -31,10 +43,13 @@ class Int : Primitive {
     Int(char *c);
 };
 
-class Container : Object {};
+class Container : public Object {};
 
-class Stack : Container {
-    Stack(char *name);
+class Stack : public Container {
+    std::stack<Object *> nest;
+
+   public:
+    void push(Object *o);
 };
 /// @}
 
